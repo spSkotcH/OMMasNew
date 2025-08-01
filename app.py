@@ -1,4 +1,4 @@
-#from flask import Flask, render_template, request
+from flask import Flask, render_template, request
 import sqlite3
 
 app = Flask(__name__)
@@ -294,7 +294,7 @@ def gocomand(comm):
     if gm == None:
         gm = 0
     photo = stat_list[5]
-    countgames = cuntgames()
+    countgames = cuntgames(command)
     return render_template('command.html', command=command, rate=rate, cb=cb,fa=fa , cf=cf, ht=ht, gm=gm, photo=photo, countgames=countgames)
 
 @app.route('/admin')
