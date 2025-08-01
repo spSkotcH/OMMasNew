@@ -67,14 +67,14 @@
     <main>
         <div style="margin: auto;">
             <h1 style="margin: auto; text-align: center; color: white; font-size: 42px; margin-bottom: 14px; margin-top: 14px;">Рейтинг 2025</h1>
-            <table style="margin: auto; border: none; border-collapse: collapse; width: 55%; font-size: 34px;">
-                <tr style="background-color: rgba(200, 200, 200, 0.9); color: #210d06">
+            <table style="margin: auto; border: none; border-collapse: collapse; width: 55%; font-size: 1.95vw; white-space: nowrap;">
+                <tr style="background-color: rgba(200, 200, 200, 0.9); color: #210d06; background-image: linear-gradient(to bottom, #fdf185, orange 60%);">
                     <th style="box-shadow: 0 0 1px rgba(50, 50, 50, 0.8); text-align: center; border: none; border-radius: 10px 0 0 10px">№</th>
                     <th style="box-shadow: 0 0 1px rgba(50, 50, 50, 0.8); border: none; border-radius: 0 0 0 0">Название команды</th>
                     <th style="box-shadow: 0 0 1px rgba(50, 50, 50, 0.8); border: none; border-radius: 0 10px 10px 0">Рейтинг</th>
                 </tr>
                 {% for row in data %}
-                <tr style="background-color: rgba(230, 230, 230, 0.8);">
+                <tr style="background-color: rgba(230, 200, 30, 0.8);">
                     <td style="box-shadow: 0 0 3px rgba(50, 50, 50, 0.8); border-radius: 15px 0 0 15px; border: none; background-image: linear-gradient(to bottom, {{col}} 80%, rgba(235, 107, 16, 0.8)); text-align: center">{{ data.index(row) + 1 }}.</td>
                     <td style="box-shadow: 0 0 3px rgba(50, 50, 50, 0.8); border: none; background-image: linear-gradient(to bottom, {{col}} 80%, rgba(235, 107, 16, 0.8)); "><a href="/team/{{row[0]}}" class="text">ㅤ{{ row[0] }}</a></td>
                     <td style="box-shadow: 0 0 3px rgba(50, 50, 50, 0.8); border-radius: 0 15px 15px 0; text-align: center; border: none; background-image: linear-gradient(to bottom, {{col}} 80%, rgba(235, 107, 16, 0.8));">{{ row[1] if row[1] != 99 else 'нет данных' }}</td>
