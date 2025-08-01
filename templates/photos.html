@@ -47,9 +47,14 @@
         .ioi {
             width: 19%;
         }
+        .ttl {
+            font-size: 5vw;
+        }
         @media (max-width: 600px) {
-            .nav a { font-size: 2vw;}
-            .tabbl { width: 96%; font-size: 2.4vw }
+            .nav a { font-size: 1.8vw;}
+            .tabbl { width: 94%; font-size: 2vw; }
+            .logo {height: 50%; max-height: 40px; }
+            .ttl {font-size: 5vw; }
             .ioi { width: 90%; }
         }
         .tab {
@@ -114,7 +119,7 @@
         </nav>
     </header>
     <main style="text-align: center">
-        <h1 style="font-size: 48px; color: rgb(44, 44, 44); margin-bottom: 1px; margin-top: 15px">Команды</h1>
+        <h1 style="color: rgb(44, 44, 44); margin-bottom: 1px; margin-top: 15px" style="ttl">Команды</h1>
         <div style="margin: auto; padding: 1%;">
             {% for i in range(skol) %}
                 <a href="/team/{{names[i]}}" class="card">
