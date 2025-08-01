@@ -147,15 +147,10 @@ def CheckRate(comm):
     third = cursor.fetchall()[0][0]
     cursor.execute(f"SELECT Photo FROM AllTimeRate WHERE name = '{comm}' ")
     photo = cursor.fetchall()[0][0]
+    cursor.execute(f"SELECT COUNT(`{comm}`) FROM AllRate")
+    countgms = cursor.fetchall()[0][0]
 
-    return first, second, third, photo
-
-def countgames(comm):
-    conn = sqlite3.connect('TData.db')
-    cursor = conn.cursor()
-    cursor.execute(f"SELECT COUNT(GameID) FROM AllRate WHERE '{comm}' >= 1")
-    sum = cursor.fetchall()[0][0]
-    return sum
+    return first, second, third, photo, countgms
 
 def command_statistic(command):
     conn = sqlite3.connect('TData.db')
@@ -277,7 +272,6 @@ def gocomand(comm):
     command = comm
     rate = CheckRate(comm)
     stat_list = command_statistic(command)
-    print(stat_list)
     cb = stat_list[0]
     if cb == None:
         cb = 0
@@ -294,8 +288,8 @@ def gocomand(comm):
     if gm == None:
         gm = 0
     photo = stat_list[5]
-    countgames = cuntgames(command)
-    return render_template('command.html', command=command, rate=rate, cb=cb,fa=fa , cf=cf, ht=ht, gm=gm, photo=photo, countgames=countgames)
+    cntgms = rate[4]
+    return render_template('command.html', command=command, rate=rate, cb=cb,fa=fa , cf=cf, ht=ht, gm=gm, photo=photo, cntgms=cntgms)
 
 @app.route('/admin')
 def admin_page():
