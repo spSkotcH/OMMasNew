@@ -20,7 +20,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 10px;
             background-image: linear-gradient(to bottom, #fdf185, orange 60%);
             border-radius: 0 0 20px 20px;
         }
@@ -32,63 +32,33 @@
         .nav {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 15px;
         }
         .nav a {
             color: rgb(44, 44, 44);
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 2% 10px;
             border-radius: 30px;
             background-color: #ff2277;
             transition: background 0.3s, transform 0.2s;
             box-shadow: 0 2px 5px rgba(80, 80, 80, 0.8);
+            font-size: 1vw;
+        }
+        @media (max-width: 600px) {
+            .nav a { font-size: 2.5vw; padding 2% 25px }
+            .tabbl { width: 96%; font-size: 2.4vw }
+        }
+        .tab {
+            margin: auto;
         }
         .nav a:hover {
             background-color: rgba(255, 255, 255, 0.452);
             transform: scale(1.05);
         }
-        a.card:active,
-        a.card {
+        a.text:active,
+        a.text {
           text-decoration: none;
           color: #210d05;
-        }
-        .card div.ioi:hover {
-            background-color: rgba(255, 255, 255, 0.452);
-            transform: scale(1.1);
-        }
-        div.invis:hover {
-            background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0.8), rgba(0, 0, 0, 0.8));
-            filter: opacity(100%);
-        }
-        .ioi {
-            width: 19%;
-        }
-        @media (max-width: 600px) {
-        .ioi {width: 44%;}
-        }
-        .lol-f {
-            filter: brightness(75%) contrast(150%) opacity(0%);
-        }
-        .lol-s {
-            filter:  brightness(80%) sepia(100%) saturate(40%) contrast(200%) opacity(0%);
-        }
-        .lol-t {
-            filter: brightness(75%) sepia(90%) contrast(180%) opacity(0%);
-        }
-        div.invis:hover .lol-f {
-            filter: brightness(75%) contrast(150%) opacity(100%);
-        }
-        div.invis:hover .lol-s {
-            filter:  brightness(80%) sepia(100%) saturate(40%) contrast(200%) opacity(100%);
-        }
-        div.invis:hover .lol-t {
-            filter: brightness(75%) sepia(90%) contrast(180%) opacity(100%);
-        }
-        .num-block {
-            display: none;
-        }
-        div.invis:hover .num-block {
-            display: block;
         }
     </style>
 </head>
