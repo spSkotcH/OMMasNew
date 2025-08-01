@@ -150,6 +150,13 @@ def CheckRate(comm):
 
     return first, second, third, photo
 
+def countgames(comm):
+    conn = sqlite3.connect('TData.db')
+    cursor = conn.cursor()
+    cursor.execute(f"SELECT COUNT(GameID) FROM AllRate WHERE 'comm' >= 1")
+    sum = cursor.fetchall()[0][0]
+    return sum
+
 def command_statistic(command):
     conn = sqlite3.connect('TData.db')
     cursor = conn.cursor()
