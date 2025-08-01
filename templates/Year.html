@@ -20,7 +20,7 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 20px;
+            padding: 10px;
             background-image: linear-gradient(to bottom, #fdf185, orange 60%);
             border-radius: 0 0 20px 20px;
         }
@@ -32,16 +32,27 @@
         .nav {
             display: flex;
             justify-content: center;
-            gap: 25px;
+            gap: 15px;
         }
         .nav a {
             color: rgb(44, 44, 44);
             text-decoration: none;
-            padding: 10px 20px;
+            padding: 2% 10px;
             border-radius: 30px;
             background-color: #ff2277;
             transition: background 0.3s, transform 0.2s;
             box-shadow: 0 2px 5px rgba(80, 80, 80, 0.8);
+            font-size: 1vw;
+        }
+        .tabbl {
+            font-size: 1.95vw;
+        }
+        @media (max-width: 600px) {
+            .nav a { font-size: 2vw;}
+            .tabbl { width: 96%; font-size: 2.4vw }
+        }
+        .tab {
+            margin: auto;
         }
         .nav a:hover {
             background-color: rgba(255, 255, 255, 0.452);
@@ -65,9 +76,9 @@
         </nav>
     </header>
     <main>
-        <div style="margin: auto;">
+        <div class="tab">
             <h1 style="margin: auto; text-align: center; color: white; font-size: 42px; margin-bottom: 14px; margin-top: 14px;">Рейтинг 2025</h1>
-            <table style="margin: auto; border: none; border-collapse: collapse; width: 55%; font-size: 1.95vw; white-space: nowrap;">
+            <table style="margin: auto; border: none; border-collapse: collapse; white-space: nowrap;">
                 <tr style="background-color: rgba(200, 200, 200, 0.9); color: #210d06; background-image: linear-gradient(to bottom, #fdf185, orange 60%);">
                     <th style="box-shadow: 0 0 1px rgba(50, 50, 50, 0.8); text-align: center; border: none; border-radius: 10px 0 0 10px">№</th>
                     <th style="box-shadow: 0 0 1px rgba(50, 50, 50, 0.8); border: none; border-radius: 0 0 0 0">Название команды</th>
