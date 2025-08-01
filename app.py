@@ -13,7 +13,7 @@ def update_data():
         name = cursor.fetchall()[0][0]
         cursor.execute(f"SELECT COUNT(`{name}`) FROM AllRate")
         scr = cursor.fetchall()[0][0]
-        if scr >= 50:
+        if scr >= 30:
             cursor.execute(f"SELECT AVG(`{name}`) FROM AllRate")
             nm = cursor.fetchall()[0][0]
             num = round(nm, 2)
