@@ -153,7 +153,7 @@ def CheckRate(comm):
 def countgames(comm):
     conn = sqlite3.connect('TData.db')
     cursor = conn.cursor()
-    cursor.execute(f"SELECT COUNT(GameID) FROM AllRate WHERE 'comm' >= 1")
+    cursor.execute(f"SELECT COUNT(GameID) FROM AllRate WHERE '{comm}' >= 1")
     sum = cursor.fetchall()[0][0]
     return sum
 
