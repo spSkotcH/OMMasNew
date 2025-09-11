@@ -40,7 +40,7 @@ def season_r():
     for i in range(count):
         cursor.execute(f"SELECT name FROM AllTimeRate WHERE id = {i + 1}")
         name = cursor.fetchall()[0][0]
-        cursor.execute(f"SELECT `{name}` FROM AllRate WHERE GameID = 227 OR GameID = 228 OR GameID = 229 OR GameID = 230 OR GameID = 231 OR GameID = 232 OR GameID = 233 OR GameID = 234 OR GameID = 235 OR GameID = 236 OR GameID = 237 OR GameID = 238 OR GameID = 239")
+        cursor.execute(f"SELECT `{name}` FROM AllRate WHERE GameID = 232 OR GameID = 233 OR GameID = 234 OR GameID = 235 OR GameID = 236 OR GameID = 237 OR GameID = 238")
         score = cursor.fetchall()
         games_score = len(score)
         x = 0
