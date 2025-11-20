@@ -139,15 +139,15 @@ def AddCommand(new_nm):
 def CheckRate(comm):
     conn = sqlite3.connect('TData.db')
     cursor = conn.cursor()
-    cursor.execute(f"SELECT COUNT(GameID) FROM AllRate WHERE `{comm}` = 1")
+    cursor.execute(f"SELECT fir FROM AllTimeRate WHERE name = '{comm}' ")
     first = cursor.fetchall()[0][0]
-    cursor.execute(f"SELECT COUNT(GameID) FROM AllRate WHERE `{comm}` = 2")
+    cursor.execute(f"SELECT sec FROM AllTimeRate WHERE name = '{comm}' ")
     second = cursor.fetchall()[0][0]
-    cursor.execute(f"SELECT COUNT(GameID) FROM AllRate WHERE `{comm}` = 3")
+    cursor.execute(f"SELECT thi FROM AllTimeRate WHERE name = '{comm}' ")
     third = cursor.fetchall()[0][0]
     cursor.execute(f"SELECT Photo FROM AllTimeRate WHERE name = '{comm}' ")
     photo = cursor.fetchall()[0][0]
-    cursor.execute(f"SELECT COUNT(`{comm}`) FROM AllRate")
+    cursor.execute(f"SELECT count FROM AllTimeRate WHERE name = '{comm}' ")
     countgms = cursor.fetchall()[0][0]
 
     return first, second, third, photo, countgms
@@ -231,6 +231,25 @@ def get_s_data():
     conn.close()
     return data
 
+def get_ls_data():
+    conn = sqlite3.connect('TData.db')
+    cursor = conn.cursor()
+
+    cursor.execute("SELECT name, number FROM OldSeason")
+    data = cursor.fetchall()
+    while (None, None) in data:
+        data.remove((None, None))
+    new_data = []
+    for i in range(len(data)):
+        if data[i][1] != 0.0:
+            new_data.append(data[i])
+        else:
+            continue
+    data = new_data
+
+    conn.close()
+    return data
+
 @app.route('/')
 def index():
     data = get_data()
@@ -241,7 +260,8 @@ def index():
 def season():
     data = get_s_data()
     data.sort(key=lambda x: x[1])
-    season_name = "лето"
+    season_name = "осень"
+	played = "11/13"
     if season_name == "зима":
         col = "#4b86c9"
     elif season_name == "осень":
@@ -250,7 +270,23 @@ def season():
         col = "#ccc729"
     elif season_name == "весна":
         col = "#4aa81e"
-    return render_template('Season.html', data=data, season_name=season_name, col=col)
+    return render_template('Season.html', data=data, season_name=season_name, col=col, played=played)
+
+@app.route('/lastseason')
+def season():
+    data = get_ls_data()
+    data.sort(key=lambda x: x[1])
+    season_name = "лето"
+    played = "12/12"
+    if season_name == "зима":
+        col = "#4b86c9"
+    elif season_name == "осень":
+        col = "#cc8b29"
+    elif season_name == "лето":
+        col = "#ccc729"
+    elif season_name == "весна":
+        col = "#4aa81e"
+    return render_template('Season.html', data=data, season_name=season_name, col=col, played=played)
 
 @app.route('/year')
 def year():
