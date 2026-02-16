@@ -241,7 +241,7 @@ def index():
 def season():
     data = get_s_data()
     data.sort(key=lambda x: x[1])
-    season_name = "осень"
+    season_name = "зима"
     if season_name == "зима":
         col = "#4b86c9"
     elif season_name == "осень":
